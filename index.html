@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    </head>
+    <body>
+        <a-scene background="color:black">
+            <!--camera-->
+            <a-camera position="0 8 15"></a-camera>
+            <a-entity light="type:ambient; intensity:0.5"></a-entity>
+
+
+            <!-------------------------------------------Asset Management------------------------------------------->
+
+            <a-assets timeout="10000">
+                <img id="bg" src="./images/night.jfif">
+                <img id="footpath" src="./images/footpath.jfif">
+                <a-asset-item id="dog" src="models/dog.glb"></a-asset-item>
+                <a-asset-item id="bench" src="models/OutdoorBench.glb"></a-asset-item>
+                <a-asset-item id="lightPost" src="models/StreetLight.glb"></a-asset-item>
+            </a-assets> 
+            <a-plane position="-0.4 -0.76 -25" rotation="-90 0 0" width="100" height="100" shadow="receive: true" visible="true" src="#footpath"></a-plane>
+            <a-plane position="-0.4 10 -20" rotation="0 0 0" width="100" height="100" shadow="receive: true" visible="true" src="#bg"></a-plane>
+            <a-entity scale="10 10 20" gltf-model="#dog" shadow="cast:true"></a-entity> 
+            <a-entity position="-5 0.5 1" scale="0.05 0.05 0.05" gltf-model="#bench" shadow="cast:true"></a-entity> 
+            <a-entity position="-20 0.5 1" scale="1000 1000 1000" gltf-model="#lightPost" shadow="cast:true"></a-entity> 
+            <a-entity light="type:directional; castShadow:true; intensity:1; distance:50; decay:2; color:yellow" position="-20 0.5 20"></a-entity>
+        </a-scene>
+    </body>
+</html>
